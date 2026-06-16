@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YX630D4XCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YX630D4XCV', {'page_title': 'google-forms-mcp-privacy'});
+</script>
+
+<!-- Basic -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for google-forms-mcp">
+<title>Privacy Policy — google-forms-mcp</title>
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23f06030'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>GF</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wolff.sh/google-forms-mcp/privacy">
+<meta property="og:title" content="Privacy Policy — google-forms-mcp">
+<meta property="og:description" content="Privacy Policy for the google-forms-mcp MCP server.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --fg: #e8e8e4;
+  --bg: #121210;
+  --accent: #f06030;
+  --muted: #9a9a94;
+  --border: #2a2a28;
+  --mono: 'JetBrains Mono', monospace;
+  --serif: 'Newsreader', Georgia, serif;
+}
+
+body {
+  font-family: var(--serif);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+header {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+header a:hover { color: var(--accent); }
+
+h1 {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.updated {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+main {
+  padding: 3rem 0 4rem;
+}
+
+h2 {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-size: 1rem;
+}
+
+ul {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+  color: var(--fg);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <a href="/google-forms-mcp/">&larr; google-forms-mcp</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 17, 2025</p>
+</header>
+
+<main>
+
+<h2>What this software is</h2>
+<p>google-forms-mcp is an open-source MCP (Model Context Protocol) server that acts as a local proxy between your AI assistant and the Google Forms API. It runs entirely on your machine.</p>
+
+<h2>Data we collect</h2>
+<p>None. This software does not collect, store, transmit, or share any user data. There is no telemetry, no analytics within the server itself, no usage tracking, and no phone-home behavior.</p>
+
+<h2>Data that flows through the server</h2>
+<p>When you use the MCP server, the following data passes through it locally:</p>
+<ul>
+  <li>Your Google OAuth credentials (client ID, client secret, refresh token) are read from environment variables on your machine</li>
+  <li>Google Forms API requests and responses transit through the server process</li>
+  <li>Form content, questions, and response data from your Google Forms account</li>
+</ul>
+<p>All of this data stays on your machine and is sent only to Google's APIs. The server does not send data anywhere else.</p>
+
+<h2>Third-party services</h2>
+<p>The server communicates exclusively with:</p>
+<ul>
+  <li><strong>Google Forms API</strong> (forms.googleapis.com) to perform form operations</li>
+  <li><strong>Google OAuth2</strong> (oauth2.googleapis.com) to refresh access tokens</li>
+</ul>
+<p>Your use of Google's services is governed by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+
+<h2>Credentials</h2>
+<p>Your Google OAuth credentials are stored locally in your MCP client configuration (e.g., ~/.claude.json or environment variables). They are never logged, never included in tool responses, and never transmitted to any service other than Google's OAuth endpoint.</p>
+
+<h2>The landing page</h2>
+<p>The project homepage at wolff.sh/google-forms-mcp uses Google Analytics (gtag) to measure page visits. This is standard web analytics and is separate from the MCP server software. The server itself has no analytics.</p>
+
+<h2>Open source</h2>
+<p>The complete source code is available at <a href="https://github.com/MatthewWolff/google-forms-mcp">github.com/MatthewWolff/google-forms-mcp</a>. You can verify all claims in this policy by reading the code.</p>
+
+<h2>Contact</h2>
+<p>For privacy questions, email <a href="mailto:matthew.wolff@wisc.edu">matthew.wolff@wisc.edu</a>.</p>
+
+</main>
+
+<footer>
+  <a href="/google-forms-mcp/">Back to homepage</a>
+</footer>
+
+</div>
+</body>
+</html>

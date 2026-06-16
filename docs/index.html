@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YX630D4XCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YX630D4XCV', {'page_title': 'google-forms-mcp-homepage'});
+</script>
+
+<!-- Basic -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprehensive MCP server for the Google Forms API. Create, manage, and analyze Google Forms from Claude and other AI assistants.">
+<title>google-forms-mcp</title>
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23f06030'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>GF</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wolff.sh/google-forms-mcp/">
+<meta property="og:site_name" content="google-forms-mcp">
+<meta property="og:title" content="google-forms-mcp">
+<meta property="og:description" content="Comprehensive MCP server for the Google Forms API. Create, manage, and analyze Google Forms from Claude and other AI assistants.">
+<meta property="og:image" content="https://wolff.sh/google-forms-mcp/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="google-forms-mcp">
+<meta name="twitter:description" content="Full Google Forms API for your AI. Create forms, analyze responses, generate Sankey data.">
+<meta name="twitter:image" content="https://wolff.sh/google-forms-mcp/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --fg: #e8e8e4;
+  --bg: #121210;
+  --accent: #f06030;
+  --muted: #9a9a94;
+  --border: #2a2a28;
+  --code-bg: #1a1a18;
+  --mono: 'JetBrains Mono', monospace;
+  --serif: 'Newsreader', Georgia, serif;
+}
+
+body {
+  font-family: var(--serif);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+header {
+  padding: 6rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+h1 .accent { color: var(--accent); }
+
+header p {
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/* Install */
+.install {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.install-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .install-grid { grid-template-columns: 1fr; }
+}
+
+.install-block label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.install-block pre {
+  background: #0a0a09;
+  color: #d4d4d0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.install-block pre .dim { opacity: 0.5; }
+.install-block pre .hl { color: #f0a060; }
+.install-block pre .comment { color: #6a6a64; }
+
+/* Auth note */
+.auth-note {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.auth-note p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.auth-note a {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.auth-note a:hover { border-color: var(--accent); }
+
+/* Tools */
+.tools {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tools h2 {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.tool-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0;
+}
+
+.tool-cat {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.tool-cat:nth-child(-n+2) { border-top: none; }
+@media (max-width: 540px) { .tool-cat:nth-child(2) { border-top: 1px solid var(--border); } }
+
+.tool-cat h3 {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tool-cat h3::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.tool-cat p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tool-cat code {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  background: var(--code-bg);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+}
+
+/* Features */
+.features {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.features h2 {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.feature-list {
+  list-style: none;
+}
+
+.feature-list li {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+@media (max-width: 540px) {
+  .feature-list li { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+.feature-list li strong {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.feature-list li span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  padding: 3rem 0 4rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+footer a {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--fg);
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.15s;
+}
+
+footer a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="eyebrow">MCP Server</div>
+  <h1>google-forms<span class="accent">-mcp</span></h1>
+  <p>Full Google Forms API for your AI. Create forms, analyze responses, generate Sankey data. One server, every operation.</p>
+</header>
+
+<section class="install">
+  <div class="install-grid">
+    <div class="install-block">
+      <label>Run</label>
+      <pre>npx @matthewwolff/google-forms-mcp</pre>
+    </div>
+    <div class="install-block">
+      <label>MCP Config</label>
+      <pre><span class="dim">{</span>
+  <span class="hl">"google-forms"</span>: {
+    "command": "npx",
+    "args": ["-y", "@matthewwolff/google-forms-mcp"],
+    "env": {
+      "GOOGLE_CLIENT_ID": "...",
+      "GOOGLE_CLIENT_SECRET": "...",
+      "GOOGLE_REFRESH_TOKEN": "..."
+    }
+  }
+<span class="dim">}</span></pre>
+    </div>
+  </div>
+</section>
+
+<section class="auth-note">
+  <p>Requires Google OAuth credentials.</p>
+  <a href="https://github.com/MatthewWolff/google-forms-mcp#setup">Setup guide &#8594;</a>
+</section>
+
+<section class="tools">
+  <h2>Tools</h2>
+  <div class="tool-categories">
+    <div class="tool-cat">
+      <h3>Forms</h3>
+      <p>Create, read, update settings. <code>build_form</code> does an entire form in one call.</p>
+    </div>
+    <div class="tool-cat">
+      <h3>Items</h3>
+      <p>Every question type: radio, checkbox, dropdown, scale, date, time, rating. Plus sections and text blocks.</p>
+    </div>
+    <div class="tool-cat">
+      <h3>Responses</h3>
+      <p>Paginated retrieval with timestamp filtering. Export as CSV or flat table with question titles.</p>
+    </div>
+    <div class="tool-cat">
+      <h3>Watches</h3>
+      <p>Pub/Sub notifications on new submissions or schema changes. Create, renew, delete.</p>
+    </div>
+    <div class="tool-cat">
+      <h3>Composite</h3>
+      <p><code>clone_form</code>, <code>get_form_summary</code>, <code>export_responses_csv</code>. Multi-step operations in one call.</p>
+    </div>
+    <div class="tool-cat">
+      <h3>Analytics</h3>
+      <p>Frequency counts, cross-tabulation, <code>generate_sankey_data</code> for flow diagrams. Stats without leaving the server.</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Why this one</h2>
+  <ul class="feature-list">
+    <li>
+      <strong>Full API coverage</strong>
+      <span>Not a subset. Every question type, every item operation, every response endpoint.</span>
+    </li>
+    <li>
+      <strong>Built-in analytics</strong>
+      <span>Sankey data, cross-tabs, frequency breakdowns. No export-to-Python roundtrip.</span>
+    </li>
+    <li>
+      <strong>Composite tools</strong>
+      <span>Build entire forms in one call. Clone forms. Export CSV. Operations that would take 10+ tool calls reduced to one.</span>
+    </li>
+    <li>
+      <strong>MCP best practices</strong>
+      <span>Zod schemas with descriptions on every field. Tool annotations for auto-approval. Input validation. Error handling.</span>
+    </li>
+    <li>
+      <strong>Integration tested</strong>
+      <span>29 tests against the live Google Forms API. CI on every push.</span>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <a href="https://github.com/MatthewWolff/google-forms-mcp">GitHub</a>
+  <a href="https://www.npmjs.com/package/@matthewwolff/google-forms-mcp">npm</a>
+  <a href="https://github.com/MatthewWolff/google-forms-mcp#setup">Setup Guide</a>
+  <a href="https://github.com/MatthewWolff/google-forms-mcp/blob/main/CONTRIBUTING.md">Contribute</a>
+  <a href="/google-forms-mcp/privacy">Privacy</a>
+</footer>
+
+</div>
+</body>
+</html>

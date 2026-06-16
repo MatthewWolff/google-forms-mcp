@@ -1,0 +1,23 @@
+{
+  "name": "google-forms-mcp",
+  "description": "Comprehensive MCP server for the Google Forms API — create, manage, and analyze Google Forms directly from Claude",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matthew Wolff",
+    "url": "https://github.com/MatthewWolff"
+  },
+  "homepage": "https://github.com/MatthewWolff/google-forms-mcp",
+  "repository": "https://github.com/MatthewWolff/google-forms-mcp",
+  "license": "MIT",
+  "mcpServers": {
+    "google-forms": {
+      "command": "npx",
+      "args": ["-y", "@matthewwolff/google-forms-mcp"],
+      "env": {
+        "GOOGLE_CLIENT_ID": "",
+        "GOOGLE_CLIENT_SECRET": "",
+        "GOOGLE_REFRESH_TOKEN": ""
+      }
+    }
+  }
+}
