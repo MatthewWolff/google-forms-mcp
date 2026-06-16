@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "google-forms": {
+      "command": "npx",
+      "args": ["@matthewwolff/google-forms-mcp"],
+      "env": {
+        "GOOGLE_CLIENT_ID": "",
+        "GOOGLE_CLIENT_SECRET": "",
+        "GOOGLE_REFRESH_TOKEN": ""
+      }
+    }
+  }
+}

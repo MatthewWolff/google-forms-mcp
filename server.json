@@ -1,0 +1,69 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.matthewwolff/google-forms",
+  "description": "Comprehensive MCP server for the Google Forms API — full coverage of form creation, management, responses, and built-in analytics",
+  "repository": {
+    "url": "https://github.com/MatthewWolff/google-forms-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@matthewwolff/google-forms-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [],
+  "tools": [
+    { "name": "create_form", "description": "Create a new Google Form" },
+    { "name": "get_form", "description": "Retrieve full form details" },
+    { "name": "update_form_info", "description": "Update form title and description" },
+    { "name": "update_form_settings", "description": "Update quiz mode and email collection settings" },
+    { "name": "add_question", "description": "Add any question type (radio, checkbox, dropdown, text, paragraph, scale, date, time, rating)" },
+    { "name": "add_section", "description": "Add a page break / section header" },
+    { "name": "add_text_item", "description": "Add a static text block" },
+    { "name": "update_item", "description": "Update an existing item's title or description" },
+    { "name": "delete_item", "description": "Delete a form item by index" },
+    { "name": "move_item", "description": "Move an item from one position to another" },
+    { "name": "list_responses", "description": "List form responses with pagination and timestamp filtering" },
+    { "name": "get_response", "description": "Retrieve a single response by ID" },
+    { "name": "create_watch", "description": "Create a Pub/Sub watch for form events" },
+    { "name": "list_watches", "description": "List active watches on a form" },
+    { "name": "delete_watch", "description": "Delete a watch" },
+    { "name": "renew_watch", "description": "Renew a watch for another 7 days" },
+    { "name": "build_form", "description": "Create an entire form with sections and questions in one call" },
+    { "name": "get_form_summary", "description": "Get a simplified, LLM-friendly view of form structure" },
+    { "name": "get_responses_table", "description": "Get responses as a flat table with question titles as columns" },
+    { "name": "clone_form", "description": "Duplicate a form with all its items" },
+    { "name": "export_responses_csv", "description": "Export responses as CSV" },
+    { "name": "analyze_frequency", "description": "Count answer frequencies for a question" },
+    { "name": "cross_tabulate", "description": "Cross-tabulation between two questions" },
+    { "name": "generate_sankey_data", "description": "Generate Sankey diagram data from flow stages" },
+    { "name": "response_summary", "description": "Overview stats for all questions" }
+  ],
+  "environmentVariables": [
+    {
+      "name": "GOOGLE_CLIENT_ID",
+      "description": "Google OAuth 2.0 Client ID",
+      "isRequired": true,
+      "isSecret": false
+    },
+    {
+      "name": "GOOGLE_CLIENT_SECRET",
+      "description": "Google OAuth 2.0 Client Secret",
+      "isRequired": true,
+      "isSecret": true
+    },
+    {
+      "name": "GOOGLE_REFRESH_TOKEN",
+      "description": "Google OAuth 2.0 Refresh Token",
+      "isRequired": true,
+      "isSecret": true
+    }
+  ]
+}
