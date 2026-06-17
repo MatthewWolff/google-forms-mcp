@@ -1,6 +1,6 @@
 {
   "name": "@matthewwolff/google-forms-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Comprehensive MCP server for the Google Forms API — full coverage of form creation, management, responses, and built-in analytics",
   "type": "module",
   "license": "MIT",
