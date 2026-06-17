@@ -79,7 +79,7 @@ This opens a browser for OAuth consent and prints your refresh token.
 
 | Category | Tools | Capability |
 |----------|-------|------------|
-| **Forms** | `create_form`, `get_form`, `update_form_info`, `update_form_settings` | Full form lifecycle |
+| **Forms** | `create_form`, `get_form`, `list_forms`, `delete_form`, `update_form_info`, `update_form_settings` | Full form lifecycle |
 | **Items** | `add_question`, `add_section`, `add_text_item`, `update_item`, `delete_item`, `move_item` | All question types: radio, checkbox, dropdown, text, paragraph, scale, date, time, rating |
 | **Responses** | `list_responses`, `get_response` | Paginated retrieval with timestamp filtering |
 | **Watches** | `create_watch`, `list_watches`, `delete_watch`, `renew_watch` | Pub/Sub notifications on submissions or schema changes |
