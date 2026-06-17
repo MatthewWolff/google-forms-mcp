@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { google } from 'googleapis';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { FormsClient } from '../../auth.js';
+import { getOAuthClient, type FormsClient } from '../../auth.js';
 
 const inputSchema = {
   pageSize: z
@@ -31,7 +31,7 @@ export function registerListForms(server: McpServer, client: FormsClient) {
       },
     },
     async ({ pageSize, pageToken }) => {
-      const drive = google.drive({ version: 'v3', auth: (client as any)._options.auth });
+      const drive = google.drive({ version: 'v3', auth: getOAuthClient(client) });
 
       const params: Record<string, unknown> = {
         q: "mimeType='application/vnd.google-apps.form' and trashed=false",

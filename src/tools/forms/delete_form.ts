@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { google } from 'googleapis';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { FormsClient } from '../../auth.js';
+import { getOAuthClient, type FormsClient } from '../../auth.js';
 
 const inputSchema = {
   formId: z.string().describe('The Google Form ID to delete'),
@@ -23,7 +23,7 @@ export function registerDeleteForm(server: McpServer, client: FormsClient) {
       },
     },
     async ({ formId }) => {
-      const drive = google.drive({ version: 'v3', auth: (client as any)._options.auth });
+      const drive = google.drive({ version: 'v3', auth: getOAuthClient(client) });
 
       await drive.files.delete({ fileId: formId });
 

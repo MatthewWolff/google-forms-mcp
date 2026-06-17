@@ -1,4 +1,7 @@
 import { google } from 'googleapis';
+import type { OAuth2Client } from 'google-auth-library';
+
+const oauthClients = new WeakMap<object, OAuth2Client>();
 
 export function createFormsClient() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -14,7 +17,15 @@ export function createFormsClient() {
   const oauth2Client = new google.auth.OAuth2(clientId, clientSecret);
   oauth2Client.setCredentials({ refresh_token: refreshToken });
 
-  return google.forms({ version: 'v1', auth: oauth2Client });
+  const forms = google.forms({ version: 'v1', auth: oauth2Client });
+  oauthClients.set(forms, oauth2Client);
+  return forms;
 }
 
 export type FormsClient = ReturnType<typeof createFormsClient>;
+
+export function getOAuthClient(client: FormsClient): OAuth2Client {
+  const oauth = oauthClients.get(client as object);
+  if (!oauth) throw new Error('No OAuth2 client found for this FormsClient');
+  return oauth;
+}
